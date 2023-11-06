@@ -13,9 +13,9 @@ namespace BiografProjekt.Repo.Repositories
     public class MovieRepo : IMovie
     {
         //Dbcontext context;
-        Dbcontext context;
+        DatabaseContext context;
 
-        public MovieRepo(Dbcontext temp)
+        public MovieRepo(DatabaseContext temp)
         {
             context = temp;
         }
@@ -27,22 +27,40 @@ namespace BiografProjekt.Repo.Repositories
 
         public async Task<Movie> getById(int id)
         {
-            throw new NotImplementedException();
+            return await context.Movie.FirstOrDefaultAsync(m => m.Id == id);
         }
 
         public async Task<Movie> create(Movie movie)
         {
-            throw new NotImplementedException();
+            context.Movie.Add(movie);
+            await context.SaveChangesAsync();
+
+            return movie;
         }
 
         public async Task<Movie> delete(int id)
         {
-            throw new NotImplementedException();
+            var movie = await context.Movie.FindAsync(id);
+
+            if (movie == null)
+            {
+                context.Movie.Remove(movie);
+                context.SaveChangesAsync();
+            }
+            return movie;
         }
 
         public async Task<Movie> update(Movie updateMovie)
         {
-            throw new NotImplementedException();
+            var MovieUpdate = await context.Movie.FirstOrDefaultAsync(m => m.Id == updateMovie.Id);
+
+            MovieUpdate.Id = updateMovie.Id;
+            MovieUpdate.Name = updateMovie.Name;
+            MovieUpdate.ReleaseDate = updateMovie.ReleaseDate;
+            MovieUpdate.length = updateMovie.length;
+
+            await context.SaveChangesAsync();
+            return MovieUpdate;
         }
     }
 }

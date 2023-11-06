@@ -8,13 +8,16 @@ using System.Threading.Tasks;
 
 namespace BiografProjekt.Repo.Dbcontext
 {
-    public class Dbcontext : DbContext
+    public class DatabaseContext : DbContext // EntityFramework Core opsætning
     {
-        public Dbcontext(DbContextOptions<Dbcontext> option) : base(option) 
-        {
-            
-        }
-
-        public DbSet<Movie> movie { get; set; }
+        // a class has 2 things (methods and properties)
+        public DatabaseContext(DbContextOptions<DatabaseContext> option) : base(option) { }
+        public DbSet<Movie> Movie { get; set; }
     }
+
+
+
+
+
+        
 }

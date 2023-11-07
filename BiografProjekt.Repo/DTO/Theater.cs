@@ -13,6 +13,6 @@ namespace BiografProjekt.Repo.DTO
         public string Location { get; set; }
         public int ParkingSpots { get; set; }
         public int NumberOfHalls { get; set; }
-        public int shopId { get; set; }
+        //public int shopId { get; set; }
     }
 }

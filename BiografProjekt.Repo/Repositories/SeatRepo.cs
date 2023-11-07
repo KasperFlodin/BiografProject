@@ -26,22 +26,38 @@ namespace BiografProjekt.Repo.Repositories
 
         public async Task<Seat> getById(int id)
         {
-            throw new NotImplementedException();
+            return await context.Seat.FirstOrDefaultAsync(s => s.Id == id);
         }
 
         public async Task<Seat> create(Seat seat)
         {
-            throw new NotImplementedException();
+            context.Seat.Add(seat);
+            await context.SaveChangesAsync();
+
+            return seat;
         }
 
         public async Task<Seat> delete(int id)
         {
-            throw new NotImplementedException();
+            var seat = await context.Seat.FindAsync(id);
+
+            if (seat == null)
+            {
+                context.Seat.Remove(seat);
+                context.SaveChangesAsync();
+            }
+            return seat;
         }
 
         public async Task<Seat> update(Seat updateSeat)
         {
-            throw new NotImplementedException();
+            var SeatUpdate = await context.Seat.FirstOrDefaultAsync(s => s.Id == updateSeat.Id);
+
+            SeatUpdate.Id = updateSeat.Id;
+            SeatUpdate.SeatNumber = updateSeat.SeatNumber;
+
+            await context.SaveChangesAsync();
+            return SeatUpdate;
         }
     }
 }

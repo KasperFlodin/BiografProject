@@ -26,22 +26,41 @@ namespace BiografProjekt.Repo.Repositories
 
         public async Task<Theater> getById(int id)
         {
-            throw new NotImplementedException();
+            return await context.Theater.FirstOrDefaultAsync(t => t.Id == id);
         }
 
         public async Task<Theater> create(Theater theater)
         {
-            throw new NotImplementedException();
+            context.Theater.Add(theater);
+            await context.SaveChangesAsync();
+
+            return theater;
         }
 
         public async Task<Theater> delete(int id)
         {
-            throw new NotImplementedException();
+            var theater = await context.Theater.FindAsync(id);
+
+            if (theater == null)
+            {
+                context.Theater.Remove(theater);
+                context.SaveChangesAsync();
+            }
+            return theater;
         }
 
         public async Task<Theater> update(Theater updateTheater)
         {
-            throw new NotImplementedException();
+            var TheaterUpdate = await context.Theater.FirstOrDefaultAsync(t => t.Id == updateTheater.Id);
+
+            TheaterUpdate.Id = updateTheater.Id;
+            TheaterUpdate.Name = updateTheater.Name;
+            TheaterUpdate.Location = updateTheater.Location;
+            TheaterUpdate.ParkingSpots = updateTheater.ParkingSpots;
+            TheaterUpdate.NumberOfHalls = updateTheater.NumberOfHalls;
+
+            await context.SaveChangesAsync();
+            return TheaterUpdate;
         }
     }
 }

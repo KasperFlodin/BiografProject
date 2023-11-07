@@ -26,22 +26,46 @@ namespace BiografProjekt.Repo.Repositories
 
         public async Task<User> getById(int id)
         {
-            throw new NotImplementedException();
+            return await context.User.FirstOrDefaultAsync(u => u.Id == id);
         }
 
         public async Task<User> create(User user)
         {
-            throw new NotImplementedException();
+            context.User.Add(user);
+            await context.SaveChangesAsync();
+
+            return user;
         }
 
         public async Task<User> delete(int id)
         {
-            throw new NotImplementedException();
+            var user = await context.User.FindAsync(id);
+
+            if (user == null)
+            {
+                context.User.Remove(user);
+                context.SaveChangesAsync();
+            }
+            return user;
         }
 
         public async Task<User> update(User updateUser)
         {
-            throw new NotImplementedException();
+            var UserUpdate = await context.User.FirstOrDefaultAsync(u => u.Id == updateUser.Id);
+
+            UserUpdate.Id = updateUser.Id;
+            UserUpdate.Name = updateUser.Name;
+            UserUpdate.Email = updateUser.Email;
+            UserUpdate.Address = updateUser.Address;
+            UserUpdate.City = updateUser.City;
+            UserUpdate.PostNr = updateUser.PostNr;
+            UserUpdate.Phone = updateUser.Phone;
+            UserUpdate.Password = updateUser.Password;
+            UserUpdate.IsAdmin = updateUser.IsAdmin; // giver nok problemer...
+            
+
+            await context.SaveChangesAsync();
+            return UserUpdate;
         }
     }
 }

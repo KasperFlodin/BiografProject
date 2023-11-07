@@ -26,7 +26,7 @@ namespace BiografProjekt.Repo.Repositories
 
         public async Task<Genre> getById(int id)
         {
-            return await context.Genre.FirstOrDefaultAsync(m => m.Id == id);
+            return await context.Genre.FirstOrDefaultAsync(g => g.Id == id);
         }
 
         public async Task<Genre> create(Genre genre)
@@ -51,7 +51,7 @@ namespace BiografProjekt.Repo.Repositories
 
         public async Task<Genre> update(Genre updateGenre)
         {
-            var genreUpdate = await context.Genre.FirstOrDefaultAsync(m => m.Id == updateGenre.Id);
+            var genreUpdate = await context.Genre.FirstOrDefaultAsync(g => g.Id == updateGenre.Id);
 
             genreUpdate.Id = updateGenre.Id;
             genreUpdate.Name = updateGenre.Name;

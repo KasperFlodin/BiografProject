@@ -13,6 +13,12 @@ builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 
 builder.Services.AddScoped<IMovie, MovieRepo>();
+builder.Services.AddScoped<IGenre, GenreRepo>();
+builder.Services.AddScoped<IHall, HallRepo>();
+builder.Services.AddScoped<ISeat, SeatRepo>();
+builder.Services.AddScoped<ITicket, TicketRepo>();
+builder.Services.AddScoped<ITheater, TheaterRepo>();
+builder.Services.AddScoped<IUser, UserRepo>();
 
 builder.Services.AddDbContext<BiografProjekt.Repo.Dbcontext.DatabaseContext>(options =>
 options.UseSqlServer(builder.Configuration.GetConnectionString("connection")));

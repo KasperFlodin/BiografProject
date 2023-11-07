@@ -10,7 +10,6 @@ namespace BiografProjekt.Repo.Interfaces
     public interface IMovie
     {
         public Task<List<Movie>> getAll();
-        // SuperHero getByName(string name);
 
         public Task<Movie> getById(int id);
 

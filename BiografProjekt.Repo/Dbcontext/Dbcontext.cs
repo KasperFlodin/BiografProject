@@ -13,6 +13,12 @@ namespace BiografProjekt.Repo.Dbcontext
         // a class has 2 things (methods and properties)
         public DatabaseContext(DbContextOptions<DatabaseContext> option) : base(option) { }
         public DbSet<Movie> Movie { get; set; }
+        public DbSet<Genre> Genre { get; set; }
+        public DbSet<Hall> Hall { get; set; }
+        public DbSet<Seat> Seat { get; set; }
+        public DbSet<Ticket> Ticket { get; set; }
+        public DbSet<User> User { get; set; }
+        public DbSet<Theater> Theater { get; set; }
     }
 
 

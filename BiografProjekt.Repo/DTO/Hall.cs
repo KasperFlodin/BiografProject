@@ -1,12 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel.DataAnnotations.Schema;
-using System.Linq;
-using System.Text;
-using System.Text.Json.Serialization;
-using System.Threading.Tasks;
-
-namespace BiografProjekt.Repo.DTO
+﻿namespace BiografProjekt.Repo.DTO
 {
     public class Hall
     {
@@ -17,10 +9,10 @@ namespace BiografProjekt.Repo.DTO
         [ForeignKey("Movie.Id")]
         public int MovieId { get; set; }
         public Movie Movie { get; set; }
-        
-        [JsonIgnore]
-        [ForeignKey("Seat.Id")]
-        public int SeatId { get; set; }
-        public Seat Seat { get; set; }
+
+        //[JsonIgnore]
+        //[ForeignKey("Seat.Id")]
+        //public int SeatId { get; set; }
+        //public Seat Seat { get; set; }
     }
 }

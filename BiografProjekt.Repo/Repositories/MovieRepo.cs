@@ -1,14 +1,4 @@
-﻿using BiografProjekt.Repo.Dbcontext;
-using BiografProjekt.Repo.DTO;
-using BiografProjekt.Repo.Interfaces;
-using Microsoft.EntityFrameworkCore;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace BiografProjekt.Repo.Repositories
+﻿namespace BiografProjekt.Repo.Repositories
 {
     public class MovieRepo : IMovie
     {

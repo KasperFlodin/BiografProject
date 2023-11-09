@@ -1,8 +1,3 @@
-using BiografProjekt.Repo.Repositories;
-using BiografProjekt.Repo.DTO;
-using BiografProjekt.Repo.Interfaces;
-using Microsoft.EntityFrameworkCore;
-
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.

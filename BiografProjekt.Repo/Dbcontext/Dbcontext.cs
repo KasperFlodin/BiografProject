@@ -1,12 +1,4 @@
-﻿using BiografProjekt.Repo.DTO;
-using Microsoft.EntityFrameworkCore;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace BiografProjekt.Repo.Dbcontext
+﻿namespace BiografProjekt.Repo.Dbcontext
 {
     public class DatabaseContext : DbContext // EntityFramework Core opsætning
     {
@@ -236,17 +228,19 @@ namespace BiografProjekt.Repo.Dbcontext
                {
                    Id = 1,
                    NumberOfSeats = 5,
-                   
+                   MovieId = 1,                   
                },
                new Hall
                {
                    Id = 2,
                    NumberOfSeats = 5,
+                   MovieId = 2,
                }
                , new Hall
                {
                    Id = 3,
                    NumberOfSeats = 5,
+                   MovieId = 3,
                });
 
 

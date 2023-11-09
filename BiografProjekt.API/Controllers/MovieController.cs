@@ -1,9 +1,4 @@
-﻿using BiografProjekt.Repo.DTO;
-using BiografProjekt.Repo.Interfaces;
-using BiografProjekt.Repo.Repositories;
-using Microsoft.AspNetCore.Mvc;
-
-namespace BiografProjekt.API.Controllers
+﻿namespace BiografProjekt.API.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]
@@ -41,32 +36,87 @@ namespace BiografProjekt.API.Controllers
             }
         }
 
-        // GET: api/SuperHeroes/5
         [HttpGet("{id}")]
-        public async Task<ActionResult<Movie>> GetById(int id)
+        public async Task<IActionResult> GetById(int id)
         {
-            return await movieRepo.getById(id);
+            try
+            {
+                var movie = await movieRepo.getById(id);
+
+                if (movie == null)
+                {
+                    return NotFound();
+                }
+
+                return Ok(movie);
+
+            }
+            catch (Exception ex)
+            {
+
+                return Problem(ex.Message);
+            }
         }
 
-        // PUT: api/SuperHeroes/5
-        [HttpPut("{id}")]
-        public async Task<Movie> UpdateMovie(Movie movie)
+        [HttpPut]
+        //public async Task<Movie> UpdateMovie(Movie movie)
+        public async Task<IActionResult> UpdateMovie(Movie movie)
         {
-            return await movieRepo.update(movie);
+            //return await movieRepo.update(movie);
+            try
+            {
+                var movieUpdate = await movieRepo.update(movie);
+
+                if (movieUpdate == null)
+                {
+                    return NotFound();
+                }
+
+                return Ok(movieUpdate);
+            }
+            catch (Exception ex)
+            {
+                return Problem(ex.Message);
+            }
         }
 
-        // POST: api/SuperHeroes
         [HttpPost]
-        public async Task<ActionResult<Movie>> CreateMovie(Movie movie)
+        //public async Task<ActionResult<Movie>> CreateMovie(Movie movie)
+        public async Task<IActionResult> CreateMovie(Movie movie)
         {
-            return await movieRepo.create(movie);
+            //return await movieRepo.create(movie);
+            try
+            {
+                Movie createMovie = await movieRepo.create(movie);
+                return Ok(createMovie); // Returns status 200 success
+            }
+            catch (Exception ex)
+            {
+
+                return Problem(ex.Message); // returnere error message
+            }
         }
 
-        // DELETE: api/SuperHeroes/5
-        [HttpDelete("{id}")]
-        public async Task<Movie> DeleteMovie(int id)
+        [HttpDelete]
+        public async Task<IActionResult> DeleteMovie(int id)
         {
-            return await movieRepo.delete(id);
+            //return await movieRepo.delete(id);
+            try
+            {
+                var deleteMovie = await movieRepo.delete(id);
+
+                if (deleteMovie == null)
+                {
+                    return NotFound();
+                }
+
+                return Ok(deleteMovie);
+            }
+            catch (Exception ex)
+            {
+
+                return Problem(ex.Message);
+            }
         }
     }
 }

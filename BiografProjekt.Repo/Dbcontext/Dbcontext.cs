@@ -228,18 +228,21 @@
                {
                    Id = 1,
                    NumberOfSeats = 5,
-                   MovieId = 1,                   
+                   HallName = "Hall 1",
+                   MovieId = 1,
                },
                new Hall
                {
                    Id = 2,
                    NumberOfSeats = 5,
+                   HallName = "Hall 2",
                    MovieId = 2,
                }
                , new Hall
                {
                    Id = 3,
                    NumberOfSeats = 5,
+                   HallName = "Hall 3",
                    MovieId = 3,
                });
 

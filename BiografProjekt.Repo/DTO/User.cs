@@ -9,7 +9,7 @@
         public string City { get; set; }
         public int PostNr { get; set; }
         public int Phone { get; set; }
-        public bool IsAdmin { get; set; }
+        public Role Role { get; set; }
         public string Password { get; set; }
     }
 }

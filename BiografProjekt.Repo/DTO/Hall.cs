@@ -4,6 +4,7 @@
     {
         public int Id { get; set; }
         public int NumberOfSeats { get; set; }
+        public string HallName { get; set; }
 
         [JsonIgnore]
         [ForeignKey("Movie.Id")]

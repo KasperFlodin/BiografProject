@@ -1,1 +1,24 @@
-<div>appComponent works!</div>
+<nav class="nav nav-pills">
+  <div>
+    <a class="navbar-toggler" routerLink="/" routerLinkActive="active" [routerLinkActiveOptions]="{exact:true}" style="font-size:30px;cursor:pointer"><b>Home -</b></a>
+
+        <a routerLink="/movie" class="nav-link" routerLinkActive="active" style="font-size:30px;cursor:pointer">Movie -</a>
+
+        <div class="mainHeader" style="padding: 5px 0px;">
+          <h1 style="margin: 5px 0px 0px 10%; font-size: 200%;"><a href="">Bio Bio</a></h1>
+        
+          <ul style="display: flex; margin: 5px 50px 0px 0px; overflow: hidden;">
+              <li class="lil"> <span style="font-size:30px;cursor:pointer" routerLink="/login">tickets</span></li>
+              <li class="lil"> <span style="font-size:30px;cursor:pointer" routerLink="/ticket">users</span></li>
+          </ul>
+        </div>
+      
+    <button 
+      class="navbarToggler" 
+      type="button"
+      aria-controls="navbarToggler" 
+      aria-expanded="false" 
+      aria-label="toggle navigation">
+    </button>
+  </div>
+</nav>

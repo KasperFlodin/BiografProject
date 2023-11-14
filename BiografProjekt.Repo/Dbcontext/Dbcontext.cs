@@ -25,7 +25,7 @@
                     City = "there",
                     PostNr = 1999,
                     Phone = 12344321,
-                    IsAdmin = true,
+                    //IsAdmin = true,
                     Password = "Passw0rd"
                 },
                 new User
@@ -37,7 +37,7 @@
                     City = "heree",
                     PostNr = 1888,
                     Phone = 43211234,
-                    IsAdmin = false,
+                    //IsAdmin = false,
                     Password = "Passw0rd"
                 });
 

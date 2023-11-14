@@ -51,7 +51,7 @@
             UserUpdate.PostNr = updateUser.PostNr;
             UserUpdate.Phone = updateUser.Phone;
             UserUpdate.Password = updateUser.Password;
-            UserUpdate.IsAdmin = updateUser.IsAdmin; // giver nok problemer...
+            /*UserUpdate.IsAdmin = updateUser.IsAdmin;*/ // giver nok problemer...
             
 
             await context.SaveChangesAsync();

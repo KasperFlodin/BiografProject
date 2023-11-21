@@ -17,6 +17,10 @@ export class MovieService {
     return this.http.get<Movie[]>(this.apiUrl)
   }
 
+  FindById(movieId: string): Observable<Movie> {
+    return this.http.get<Movie>(this.apiUrl+movieId);
+  }
+
   delete(movieId: number): Observable<Movie> {
     return this.http.delete<Movie>(this.apiUrl+movieId)
   }
@@ -27,10 +31,6 @@ export class MovieService {
 
   update(movieId:number, movie: Movie): Observable<Movie> {
     return this.http.put<Movie>(this.apiUrl+movieId, movie);
-  }
-
-  FindById(movieId: string): Observable<Movie> {
-    return this.http.get<Movie>(this.apiUrl+movieId);
   }
 }
 

@@ -1,0 +1,12 @@
+observable is async programming,
+basis viden om ORM (object Relational Mapping)
+(code.) bruges i cmd til at åbne vs code,
+analyse af vores classer - ? auto generere diagram ?
+use case er analyse - ikke design - en beskrivelse/handling i billede form
+user story er tanker eller ideer
+DLL Dynamic-Link-Libary - class libary og bygger det?
+brug genre 1 interface til CRUD istedet for hver klasse der har CRUD hver.
+dependancy inversion principle? splittet op så den er uafhængig af andet kode (abstractions should no depend on details. details should depend on abstractions)
+vil gerne prøve at adskille kode som meget som muligt uafhængig. (kan bruge interfaces tilat adskille kode)(polymorfi kan udføre det samme)
+når interface bruges bliver f.eks. controller afhængig af noget andet.
+

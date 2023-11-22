@@ -1,6 +1,6 @@
 import { Role } from './role';
 
-export class Hall {
+export class User {
     id:number = 0;
     name:string = '';
     email:string = '';

@@ -1,5 +1,15 @@
 var builder = WebApplication.CreateBuilder(args);
 
+// part 1 of CORS
+builder.Services.AddCors(options =>
+{
+    options.AddPolicy("CorsPolicy", builder => builder
+        .WithOrigins("http://localhost:4200")
+        .AllowAnyHeader()
+        .AllowAnyMethod()
+        .AllowCredentials());
+});
+
 // Add services to the container.
 
 builder.Services.AddControllers();
@@ -20,8 +30,11 @@ options.UseSqlServer(builder.Configuration.GetConnectionString("connection")));
 
 var app = builder.Build();
 
-// CORS Policy - so 2 processes can talk to eah other:
-app.UseCors(policy => policy.AllowAnyHeader().AllowAnyMethod().AllowAnyOrigin());
+//// CORS Policy - so 2 processes can talk to eah other:
+//app.UseCors(policy => policy.AllowAnyHeader().AllowAnyMethod().AllowAnyOrigin());
+
+// Part 2 of CORS
+app.UseCors("CorsPolicy");
 
 // Configure the HTTP request pipeline.
 if (app.Environment.IsDevelopment())

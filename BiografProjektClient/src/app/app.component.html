@@ -1,9 +1,14 @@
 <nav class="nav nav-pills">
   <div>
-    <a class="navbar-toggler" routerLink="/" routerLinkActive="active" [routerLinkActiveOptions]="{exact:true}" style="font-size:large;cursor:pointer"><b>Home</b></a>
+    <a class="navbar-toggler" routerLink="" style="font-size:large;cursor:pointer"><b>Home</b></a>
     <a style="font-size: large;"> - </a>
-    <a class="nav-link" routerLink="/movie" routerLinkActive="active" style="font-size:large;">Movie</a>
+    <a class="nav-link" routerLink="movie" style="font-size:large;">Movie</a>
 
-    
+
   </div>
 </nav>
+
+<!-- main app container -->
+<div class="container">
+  <router-outlet></router-outlet>
+</div>

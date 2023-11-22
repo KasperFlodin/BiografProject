@@ -9,22 +9,26 @@ import { TicketComponent } from './components/ticket/ticket.component';
 import { UserComponent } from './components/user/user.component';
 import { GenreComponent } from './components/genre/genre.component';
 import { SeatComponent } from './components/seat/seat.component';
+import { FrontpageComponent } from './frontpage.component';
+import { HttpClientModule } from '@angular/common/http';
 
 // ng add @ng-bootstrap/ng-bootstrap
 
 @NgModule({
   declarations: [
     AppComponent,
+  ],
+  imports: [
+    BrowserModule,
+    AppRoutingModule,
     MovieComponent,
     HallComponent,
     TicketComponent,
     UserComponent,
     GenreComponent,
-    SeatComponent
-  ],
-  imports: [
-    BrowserModule,
-    AppRoutingModule
+    SeatComponent,
+    FrontpageComponent,
+    HttpClientModule,
   ],
   providers: [],
   bootstrap: [AppComponent]

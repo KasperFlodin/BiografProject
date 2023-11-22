@@ -1,0 +1,61 @@
+biograf:
+
+movie [
+id,
+title/name, 
+lenght, 
+genres[], 
+releaseDate
+]
+
+genre [
+id, 
+genreName
+]
+
+ticket [ (holder seatid)
+id, 
+price, 
+seatId (indeholder hall?)
+movieId
+]
+
+seat [ (en del af en hall)
+id, 
+hallId,
+row?
+]
+
+movietheater/place/location? [
+id, 
+Location, 
+parkingoptions/number,
+shopId,
+numberOfHalls?,
+currentNumberOfMovies?,
+]
+
+hall [
+id, 
+numberOfSeats, 
+movieId
+]
+
+user (register / login) [
+id, 
+name, 
+email, (username=email?) 
+address, 
+city, 
+postnr, 
+phone, 
+admin? yes/no,
+password (eventuelt login)
+]
+
+shop? (cart / buy ticket) [
+id,
+availableTickets,
+buyTicket (ticketId),
+andet?
+]

@@ -9,7 +9,7 @@ import { Genre } from '../models/genre';
 })
 export class GenreService {
 
-  private readonly apiUrl=environment.apiUrl+"Genre/";
+  private readonly apiUrl=environment.apiUrl+"Genre";
   constructor(private http:HttpClient) { }
 
 

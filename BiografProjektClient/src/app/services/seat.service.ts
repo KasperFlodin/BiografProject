@@ -9,7 +9,7 @@ import { Seat } from '../models/seat';
 })
 export class SeatService {
 
-  private readonly apiUrl=environment.apiUrl+"Seat/";
+  private readonly apiUrl=environment.apiUrl+"Seat";
   constructor(private http:HttpClient) { }
 
   getAll():Observable<Seat[]>{

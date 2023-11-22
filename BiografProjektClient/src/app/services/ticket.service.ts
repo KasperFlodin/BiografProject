@@ -9,7 +9,7 @@ import { Ticket } from '../models/ticket';
 })
 export class TicketService {
 
-  private readonly apiUrl=environment.apiUrl+"Ticket/";
+  private readonly apiUrl=environment.apiUrl+"Ticket";
   constructor(private http:HttpClient) { }
 
 

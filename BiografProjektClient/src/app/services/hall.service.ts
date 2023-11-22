@@ -9,7 +9,7 @@ import { Hall } from '../models/hall';
 })
 export class HallService {
 
-  private readonly apiUrl=environment.apiUrl+"Hall/";
+  private readonly apiUrl=environment.apiUrl+"Hall";
   constructor(private http:HttpClient) { }
 
 

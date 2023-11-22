@@ -93,6 +93,10 @@ namespace BiografProjekt.Repo.Migrations
 
                     SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
 
+                    b.Property<string>("HallName")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
                     b.Property<int>("MovieId")
                         .HasColumnType("int");
 
@@ -109,18 +113,21 @@ namespace BiografProjekt.Repo.Migrations
                         new
                         {
                             Id = 1,
+                            HallName = "Hall 1",
                             MovieId = 1,
                             NumberOfSeats = 5
                         },
                         new
                         {
                             Id = 2,
+                            HallName = "Hall 2",
                             MovieId = 2,
                             NumberOfSeats = 5
                         },
                         new
                         {
                             Id = 3,
+                            HallName = "Hall 3",
                             MovieId = 3,
                             NumberOfSeats = 5
                         });
@@ -375,9 +382,6 @@ namespace BiografProjekt.Repo.Migrations
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<bool>("IsAdmin")
-                        .HasColumnType("bit");
-
                     b.Property<string>("Name")
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
@@ -392,6 +396,9 @@ namespace BiografProjekt.Repo.Migrations
                     b.Property<int>("PostNr")
                         .HasColumnType("int");
 
+                    b.Property<int>("Role")
+                        .HasColumnType("int");
+
                     b.HasKey("Id");
 
                     b.ToTable("User");
@@ -403,11 +410,11 @@ namespace BiografProjekt.Repo.Migrations
                             Address = "streetname 1",
                             City = "there",
                             Email = "email123@mail.com",
-                            IsAdmin = true,
                             Name = "Name",
                             Password = "Passw0rd",
                             Phone = 12344321,
-                            PostNr = 1999
+                            PostNr = 1999,
+                            Role = 0
                         },
                         new
                         {
@@ -415,11 +422,11 @@ namespace BiografProjekt.Repo.Migrations
                             Address = "itried 3",
                             City = "heree",
                             Email = "thisisamail@mail.com",
-                            IsAdmin = false,
                             Name = "Alsoname",
                             Password = "Passw0rd",
                             Phone = 43211234,
-                            PostNr = 1888
+                            PostNr = 1888,
+                            Role = 0
                         });
                 });
 

@@ -7,7 +7,7 @@
 namespace BiografProjekt.Repo.Migrations
 {
     /// <inheritdoc />
-    public partial class BiografMigrate : Migration
+    public partial class datafordb : Migration
     {
         /// <inheritdoc />
         protected override void Up(MigrationBuilder migrationBuilder)
@@ -81,7 +81,7 @@ namespace BiografProjekt.Repo.Migrations
                     City = table.Column<string>(type: "nvarchar(max)", nullable: false),
                     PostNr = table.Column<int>(type: "int", nullable: false),
                     Phone = table.Column<int>(type: "int", nullable: false),
-                    IsAdmin = table.Column<bool>(type: "bit", nullable: false),
+                    Role = table.Column<int>(type: "int", nullable: false),
                     Password = table.Column<string>(type: "nvarchar(max)", nullable: false)
                 },
                 constraints: table =>
@@ -118,6 +118,7 @@ namespace BiografProjekt.Repo.Migrations
                     Id = table.Column<int>(type: "int", nullable: false)
                         .Annotation("SqlServer:Identity", "1, 1"),
                     NumberOfSeats = table.Column<int>(type: "int", nullable: false),
+                    HallName = table.Column<string>(type: "nvarchar(max)", nullable: false),
                     MovieId = table.Column<int>(type: "int", nullable: false)
                 },
                 constraints: table =>
@@ -171,11 +172,11 @@ namespace BiografProjekt.Repo.Migrations
 
             migrationBuilder.InsertData(
                 table: "User",
-                columns: new[] { "Id", "Address", "City", "Email", "IsAdmin", "Name", "Password", "Phone", "PostNr" },
+                columns: new[] { "Id", "Address", "City", "Email", "Name", "Password", "Phone", "PostNr", "Role" },
                 values: new object[,]
                 {
-                    { 1, "streetname 1", "there", "email123@mail.com", true, "Name", "Passw0rd", 12344321, 1999 },
-                    { 2, "itried 3", "heree", "thisisamail@mail.com", false, "Alsoname", "Passw0rd", 43211234, 1888 }
+                    { 1, "streetname 1", "there", "email123@mail.com", "Name", "Passw0rd", 12344321, 1999, 0 },
+                    { 2, "itried 3", "heree", "thisisamail@mail.com", "Alsoname", "Passw0rd", 43211234, 1888, 0 }
                 });
 
             migrationBuilder.InsertData(
@@ -194,12 +195,12 @@ namespace BiografProjekt.Repo.Migrations
 
             migrationBuilder.InsertData(
                 table: "Hall",
-                columns: new[] { "Id", "MovieId", "NumberOfSeats" },
+                columns: new[] { "Id", "HallName", "MovieId", "NumberOfSeats" },
                 values: new object[,]
                 {
-                    { 1, 1, 5 },
-                    { 2, 2, 5 },
-                    { 3, 3, 5 }
+                    { 1, "Hall 1", 1, 5 },
+                    { 2, "Hall 2", 2, 5 },
+                    { 3, "Hall 3", 3, 5 }
                 });
 
             migrationBuilder.CreateIndex(

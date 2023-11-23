@@ -17,7 +17,8 @@ namespace BiografProjekt.API.Controllers
         {
             try
             {
-                var halls = await hallRepo.getAll();
+                //var halls = await hallRepo.getAll();
+                var halls = await hallRepo.getAllIncludeMovie();
                 if (halls == null)
                 {
                     // something has gone wrong serverside, return code 500

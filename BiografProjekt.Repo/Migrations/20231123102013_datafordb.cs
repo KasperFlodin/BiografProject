@@ -2,8 +2,6 @@
 
 #nullable disable
 
-#pragma warning disable CA1814 // Prefer jagged arrays over multidimensional
-
 namespace BiografProjekt.Repo.Migrations
 {
     /// <inheritdoc />
@@ -13,16 +11,18 @@ namespace BiografProjekt.Repo.Migrations
         protected override void Up(MigrationBuilder migrationBuilder)
         {
             migrationBuilder.CreateTable(
-                name: "Genre",
+                name: "Movie",
                 columns: table => new
                 {
                     Id = table.Column<int>(type: "int", nullable: false)
                         .Annotation("SqlServer:Identity", "1, 1"),
-                    Name = table.Column<string>(type: "nvarchar(max)", nullable: false)
+                    Name = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    ReleaseDate = table.Column<int>(type: "int", nullable: false),
+                    length = table.Column<int>(type: "int", nullable: false)
                 },
                 constraints: table =>
                 {
-                    table.PrimaryKey("PK_Genre", x => x.Id);
+                    table.PrimaryKey("PK_Movie", x => x.Id);
                 });
 
             migrationBuilder.CreateTable(
@@ -90,25 +90,22 @@ namespace BiografProjekt.Repo.Migrations
                 });
 
             migrationBuilder.CreateTable(
-                name: "Movie",
+                name: "Genre",
                 columns: table => new
                 {
                     Id = table.Column<int>(type: "int", nullable: false)
                         .Annotation("SqlServer:Identity", "1, 1"),
                     Name = table.Column<string>(type: "nvarchar(max)", nullable: false),
-                    ReleaseDate = table.Column<int>(type: "int", nullable: false),
-                    length = table.Column<int>(type: "int", nullable: false),
-                    GenreId = table.Column<int>(type: "int", nullable: false)
+                    MovieId = table.Column<int>(type: "int", nullable: true)
                 },
                 constraints: table =>
                 {
-                    table.PrimaryKey("PK_Movie", x => x.Id);
+                    table.PrimaryKey("PK_Genre", x => x.Id);
                     table.ForeignKey(
-                        name: "FK_Movie_Genre_GenreId",
-                        column: x => x.GenreId,
-                        principalTable: "Genre",
-                        principalColumn: "Id",
-                        onDelete: ReferentialAction.Cascade);
+                        name: "FK_Genre_Movie_MovieId",
+                        column: x => x.MovieId,
+                        principalTable: "Movie",
+                        principalColumn: "Id");
                 });
 
             migrationBuilder.CreateTable(
@@ -132,92 +129,23 @@ namespace BiografProjekt.Repo.Migrations
                         onDelete: ReferentialAction.Cascade);
                 });
 
-            migrationBuilder.InsertData(
+            migrationBuilder.CreateIndex(
+                name: "IX_Genre_MovieId",
                 table: "Genre",
-                columns: new[] { "Id", "Name" },
-                values: new object[,]
-                {
-                    { 1, "Fantasy" },
-                    { 2, "Action" },
-                    { 3, "Horror" },
-                    { 4, "Romance" },
-                    { 5, "Adventure" },
-                    { 6, "Phychological" },
-                    { 7, "sci fi" },
-                    { 8, "Comedy" },
-                    { 9, "Crime" }
-                });
-
-            migrationBuilder.InsertData(
-                table: "Seat",
-                columns: new[] { "Id", "SeatNumber" },
-                values: new object[,]
-                {
-                    { 1, 1 },
-                    { 2, 2 },
-                    { 3, 3 },
-                    { 4, 4 },
-                    { 5, 5 },
-                    { 6, 6 },
-                    { 7, 7 },
-                    { 8, 8 },
-                    { 9, 9 },
-                    { 10, 10 },
-                    { 11, 11 },
-                    { 12, 12 },
-                    { 13, 13 },
-                    { 14, 14 },
-                    { 15, 15 }
-                });
-
-            migrationBuilder.InsertData(
-                table: "User",
-                columns: new[] { "Id", "Address", "City", "Email", "Name", "Password", "Phone", "PostNr", "Role" },
-                values: new object[,]
-                {
-                    { 1, "streetname 1", "there", "email123@mail.com", "Name", "Passw0rd", 12344321, 1999, 0 },
-                    { 2, "itried 3", "heree", "thisisamail@mail.com", "Alsoname", "Passw0rd", 43211234, 1888, 0 }
-                });
-
-            migrationBuilder.InsertData(
-                table: "Movie",
-                columns: new[] { "Id", "GenreId", "Name", "ReleaseDate", "length" },
-                values: new object[,]
-                {
-                    { 1, 2, "first", 2020, 140 },
-                    { 2, 3, "second", 2020, 110 },
-                    { 3, 1, "third", 2020, 120 },
-                    { 4, 4, "fourth", 2024, 140 },
-                    { 5, 5, "fifth", 2020, 130 },
-                    { 6, 6, "sixth", 2020, 130 },
-                    { 7, 8, "seventh", 2020, 180 }
-                });
-
-            migrationBuilder.InsertData(
-                table: "Hall",
-                columns: new[] { "Id", "HallName", "MovieId", "NumberOfSeats" },
-                values: new object[,]
-                {
-                    { 1, "Hall 1", 1, 5 },
-                    { 2, "Hall 2", 2, 5 },
-                    { 3, "Hall 3", 3, 5 }
-                });
+                column: "MovieId");
 
             migrationBuilder.CreateIndex(
                 name: "IX_Hall_MovieId",
                 table: "Hall",
                 column: "MovieId");
-
-            migrationBuilder.CreateIndex(
-                name: "IX_Movie_GenreId",
-                table: "Movie",
-                column: "GenreId",
-                unique: true);
         }
 
         /// <inheritdoc />
         protected override void Down(MigrationBuilder migrationBuilder)
         {
+            migrationBuilder.DropTable(
+                name: "Genre");
+
             migrationBuilder.DropTable(
                 name: "Hall");
 
@@ -235,9 +163,6 @@ namespace BiografProjekt.Repo.Migrations
 
             migrationBuilder.DropTable(
                 name: "Movie");
-
-            migrationBuilder.DropTable(
-                name: "Genre");
         }
     }
 }

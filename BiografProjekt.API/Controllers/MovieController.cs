@@ -15,7 +15,8 @@
         {
             try
             {
-                var movies = await movieRepo.getAll();
+                var movies = await movieRepo.getAllInclude();
+                //var movies = await movieRepo.getAllInclude();
                 if (movies == null)
                 {
                     // something has gone wrong serverside, return code 500

@@ -1,4 +1,6 @@
-﻿namespace BiografProjekt.Repo.Repositories
+﻿using BiografProjekt.Repo.DTO;
+
+namespace BiografProjekt.Repo.Repositories
 {
     public class MovieRepo : IMovie
     {
@@ -15,16 +17,35 @@
             return await context.Movie.ToListAsync();
         }
 
+        public async Task<List<Movie>> getAllInclude()
+        {
+            return await context.Movie.Include(g => g.genres).ToListAsync();
+        }
+
         public async Task<Movie> getById(int id)
         {
             return await context.Movie.FirstOrDefaultAsync(m => m.Id == id);
         }
 
-        public async Task<Movie> create(Movie movie)
+        public async Task<Movie> create(Movie movie) // Create both?
         {
-            context.Movie.Add(movie);
-            await context.SaveChangesAsync();
+            if (movie == null) { return null; }
 
+            List<Genre> genreSelected = context.Genre.
+            Where(obj => movie.genres.Select(p => p.Id).ToArray().Contains(obj.Id))
+           .ToList();
+
+            Movie result = new Movie();
+            {
+                result.Id = movie.Id;
+                result.Name = movie.Name;
+                result.length = movie.length;
+                result.ReleaseDate = movie.ReleaseDate;
+                result.genres = genreSelected;
+            };
+            
+            context.Movie.Add(result);
+            await context.SaveChangesAsync();
             return movie;
         }
 

@@ -3,6 +3,7 @@
     public interface IMovie
     {
         public Task<List<Movie>> getAll();
+        public Task<List<Movie>> getAllInclude();
 
         public Task<Movie> getById(int id);
 

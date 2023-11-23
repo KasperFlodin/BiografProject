@@ -3,6 +3,7 @@
     public interface IHall
     {
         public Task<List<Hall>> getAll();
+        public Task<List<Hall>> getAllIncludeMovie();
 
         public Task<Hall> getById(int id);
 

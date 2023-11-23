@@ -7,10 +7,10 @@
         public int ReleaseDate { get; set; }
         public int length { get; set; }
 
-        [JsonIgnore]
-        [ForeignKey("Genre.Id")]
-        public int GenreId { get; set; }
-        [JsonIgnore]
-        public Genre Genre { get; set; }
+        //[JsonIgnore]
+        //[ForeignKey("Genre.Id")]
+        //public int GenreId { get; set; }
+        //[JsonIgnore]
+        public List<Genre> genres { get; set; } = new List<Genre>();
     }
 }

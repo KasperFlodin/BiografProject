@@ -11,6 +11,7 @@ import { GenreComponent } from './components/genre/genre.component';
 import { SeatComponent } from './components/seat/seat.component';
 import { FrontpageComponent } from './frontpage.component';
 import { HttpClientModule } from '@angular/common/http';
+import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 
 // ng add @ng-bootstrap/ng-bootstrap
 
@@ -29,6 +30,8 @@ import { HttpClientModule } from '@angular/common/http';
     SeatComponent,
     FrontpageComponent,
     HttpClientModule,
+    NgbModule,
+
   ],
   providers: [],
   bootstrap: [AppComponent]

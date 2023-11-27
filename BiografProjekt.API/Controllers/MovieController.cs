@@ -89,6 +89,7 @@
             try
             {
                 Movie createMovie = await movieRepo.create(movie);
+                //Movie createMovie = await movieRepo.createMovieAndGenre(movie);
                 return Ok(createMovie); // Returns status 200 success
             }
             catch (Exception ex)

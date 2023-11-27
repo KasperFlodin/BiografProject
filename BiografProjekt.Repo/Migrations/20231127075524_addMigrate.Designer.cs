@@ -12,8 +12,8 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace BiografProjekt.Repo.Migrations
 {
     [DbContext(typeof(DatabaseContext))]
-    [Migration("20231123102013_datafordb")]
-    partial class datafordb
+    [Migration("20231127075524_addMigrate")]
+    partial class addMigrate
     {
         /// <inheritdoc />
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -45,6 +45,53 @@ namespace BiografProjekt.Repo.Migrations
                     b.HasIndex("MovieId");
 
                     b.ToTable("Genre");
+
+                    b.HasData(
+                        new
+                        {
+                            Id = 1,
+                            Name = "Fantasy"
+                        },
+                        new
+                        {
+                            Id = 2,
+                            Name = "Action"
+                        },
+                        new
+                        {
+                            Id = 3,
+                            Name = "Horror"
+                        },
+                        new
+                        {
+                            Id = 4,
+                            Name = "Romance"
+                        },
+                        new
+                        {
+                            Id = 5,
+                            Name = "Adventure"
+                        },
+                        new
+                        {
+                            Id = 6,
+                            Name = "Phychological"
+                        },
+                        new
+                        {
+                            Id = 7,
+                            Name = "sci fi"
+                        },
+                        new
+                        {
+                            Id = 8,
+                            Name = "Comedy"
+                        },
+                        new
+                        {
+                            Id = 9,
+                            Name = "Crime"
+                        });
                 });
 
             modelBuilder.Entity("BiografProjekt.Repo.DTO.Hall", b =>

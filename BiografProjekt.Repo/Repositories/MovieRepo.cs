@@ -73,5 +73,29 @@ namespace BiografProjekt.Repo.Repositories
             await context.SaveChangesAsync();
             return MovieUpdate;
         }
+
+        //public async Task<Movie> createMovieAndGenre(Movie movie)
+        //{
+        //    // gemme genre men ikke movie
+        //    Movie temp = new Movie()
+        //    {
+        //        Id = movie.Id,
+        //        Name = movie.Name,
+        //        ReleaseDate = movie.ReleaseDate,
+        //        length = movie.length,
+        //    };
+        //    List<Genre> genres = new List<Genre>();
+        //    //I have to "read the movies from the database,because if we assign a "new"
+        //    //     Movie then it will create a row in movie table.
+        //    //     If we read movie objects from database and then "work on them" we have a pointer to those
+        //    //     objects.
+        //    var genresSelected = context.Genre.
+        //        Where(m => movie.genres.Select(p => p.Id).ToArray().Contains(m.Id)).ToList();
+        //    temp.genres.AddRange(genresSelected);
+        //    context.Movie.Add(temp);
+
+        //    await context.SaveChangesAsync();
+        //    return new Movie();
+        //}
     }
 }

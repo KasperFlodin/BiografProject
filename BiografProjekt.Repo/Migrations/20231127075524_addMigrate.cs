@@ -2,10 +2,12 @@
 
 #nullable disable
 
+#pragma warning disable CA1814 // Prefer jagged arrays over multidimensional
+
 namespace BiografProjekt.Repo.Migrations
 {
     /// <inheritdoc />
-    public partial class datafordb : Migration
+    public partial class addMigrate : Migration
     {
         /// <inheritdoc />
         protected override void Up(MigrationBuilder migrationBuilder)
@@ -127,6 +129,22 @@ namespace BiografProjekt.Repo.Migrations
                         principalTable: "Movie",
                         principalColumn: "Id",
                         onDelete: ReferentialAction.Cascade);
+                });
+
+            migrationBuilder.InsertData(
+                table: "Genre",
+                columns: new[] { "Id", "MovieId", "Name" },
+                values: new object[,]
+                {
+                    { 1, null, "Fantasy" },
+                    { 2, null, "Action" },
+                    { 3, null, "Horror" },
+                    { 4, null, "Romance" },
+                    { 5, null, "Adventure" },
+                    { 6, null, "Phychological" },
+                    { 7, null, "sci fi" },
+                    { 8, null, "Comedy" },
+                    { 9, null, "Crime" }
                 });
 
             migrationBuilder.CreateIndex(

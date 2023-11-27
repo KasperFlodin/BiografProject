@@ -12,5 +12,6 @@
         public Task<Movie> update(Movie updateMovie);
 
         public Task<Movie> delete(int id);
+        //public Task<Movie> createMovieAndGenre(Movie movie);
     }
 }

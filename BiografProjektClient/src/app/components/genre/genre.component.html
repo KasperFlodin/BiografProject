@@ -1,1 +1,12 @@
 <p>genre works!</p>
+<div class="row row-cols-1 row-cols-md-3 g-3">
+  <div class="col-sm-3" *ngFor="let item of genres">
+      <div class="card">
+          <div class="card-body">
+              <div class="card-title d-flex justify-content-between">
+                  <h6>{{item.id}} - {{item.name}}</h6>
+              </div>
+          </div>
+      </div>
+  </div>
+</div>

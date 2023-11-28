@@ -2,20 +2,29 @@
   <div class="container-fluid">
     <a class="navbar-brand mt-2 mt-lg-0" routerLink=""><b>Home</b></a>
 
-
-    <div class="collapse navbar-collapse" id="navbar-toggler">
-      <ul class="navbar nav ms-left mb-2 mb-lg-0">
+    <div class="collapse navbar-collapse">
+      <ul class="navbar nav ms-left mb-2 mb-lg-0" style="color: black;">
         <li class="nav-item">
           <a class="nav-link" routerLink="movie">Movie</a>
         </li>
         <li class="nav-item">
           <a class="nav-link" routerLink="hall">Halls</a>
         </li>
-
+        <li class="nav-item">
+          <a class="nav-link" routerLink="genre">Genres</a>
+        </li>
       </ul>
+
+      <ul class="navbar nav ms-auto mb-2 mb-lg-0" >
+        <li class="nav-item">
+          <a class="nav-link" routerLink="user" class="navbar nav ms-auto mb-2 mb-lg-0">
+            <mat-icon  aria-hidden="false" aria-label="Example home icon" fontIcon="person"></mat-icon>
+          </a>
+        </li>
+      </ul>
+
+
     </div>
-
-
 
   </div>
 </nav>

@@ -1,3 +1,5 @@
+using System.Text.Json.Serialization;
+
 var builder = WebApplication.CreateBuilder(args);
 
 // part 1 of CORS
@@ -22,11 +24,13 @@ builder.Services.AddScoped<IGenre, GenreRepo>();
 builder.Services.AddScoped<IHall, HallRepo>();
 builder.Services.AddScoped<ISeat, SeatRepo>();
 builder.Services.AddScoped<ITicket, TicketRepo>();
-builder.Services.AddScoped<ITheater, TheaterRepo>();
 builder.Services.AddScoped<IUser, UserRepo>();
 
 builder.Services.AddDbContext<BiografProjekt.Repo.Dbcontext.DatabaseContext>(options =>
 options.UseSqlServer(builder.Configuration.GetConnectionString("connection")));
+
+builder.Services.AddControllers().AddJsonOptions(
+    x => x.JsonSerializerOptions.ReferenceHandler = ReferenceHandler.IgnoreCycles);
 
 var app = builder.Build();
 

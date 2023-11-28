@@ -7,11 +7,24 @@
 namespace BiografProjekt.Repo.Migrations
 {
     /// <inheritdoc />
-    public partial class addMigrate : Migration
+    public partial class migrate : Migration
     {
         /// <inheritdoc />
         protected override void Up(MigrationBuilder migrationBuilder)
         {
+            migrationBuilder.CreateTable(
+                name: "Genre",
+                columns: table => new
+                {
+                    Id = table.Column<int>(type: "int", nullable: false)
+                        .Annotation("SqlServer:Identity", "1, 1"),
+                    Name = table.Column<string>(type: "nvarchar(max)", nullable: false)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_Genre", x => x.Id);
+                });
+
             migrationBuilder.CreateTable(
                 name: "Movie",
                 columns: table => new
@@ -38,22 +51,6 @@ namespace BiografProjekt.Repo.Migrations
                 constraints: table =>
                 {
                     table.PrimaryKey("PK_Seat", x => x.Id);
-                });
-
-            migrationBuilder.CreateTable(
-                name: "Theater",
-                columns: table => new
-                {
-                    Id = table.Column<int>(type: "int", nullable: false)
-                        .Annotation("SqlServer:Identity", "1, 1"),
-                    Name = table.Column<string>(type: "nvarchar(max)", nullable: false),
-                    Location = table.Column<string>(type: "nvarchar(max)", nullable: false),
-                    ParkingSpots = table.Column<int>(type: "int", nullable: false),
-                    NumberOfHalls = table.Column<int>(type: "int", nullable: false)
-                },
-                constraints: table =>
-                {
-                    table.PrimaryKey("PK_Theater", x => x.Id);
                 });
 
             migrationBuilder.CreateTable(
@@ -92,22 +89,27 @@ namespace BiografProjekt.Repo.Migrations
                 });
 
             migrationBuilder.CreateTable(
-                name: "Genre",
+                name: "GenreMovie",
                 columns: table => new
                 {
-                    Id = table.Column<int>(type: "int", nullable: false)
-                        .Annotation("SqlServer:Identity", "1, 1"),
-                    Name = table.Column<string>(type: "nvarchar(max)", nullable: false),
-                    MovieId = table.Column<int>(type: "int", nullable: true)
+                    MoviesId = table.Column<int>(type: "int", nullable: false),
+                    genresId = table.Column<int>(type: "int", nullable: false)
                 },
                 constraints: table =>
                 {
-                    table.PrimaryKey("PK_Genre", x => x.Id);
+                    table.PrimaryKey("PK_GenreMovie", x => new { x.MoviesId, x.genresId });
                     table.ForeignKey(
-                        name: "FK_Genre_Movie_MovieId",
-                        column: x => x.MovieId,
+                        name: "FK_GenreMovie_Genre_genresId",
+                        column: x => x.genresId,
+                        principalTable: "Genre",
+                        principalColumn: "Id",
+                        onDelete: ReferentialAction.Cascade);
+                    table.ForeignKey(
+                        name: "FK_GenreMovie_Movie_MoviesId",
+                        column: x => x.MoviesId,
                         principalTable: "Movie",
-                        principalColumn: "Id");
+                        principalColumn: "Id",
+                        onDelete: ReferentialAction.Cascade);
                 });
 
             migrationBuilder.CreateTable(
@@ -133,24 +135,24 @@ namespace BiografProjekt.Repo.Migrations
 
             migrationBuilder.InsertData(
                 table: "Genre",
-                columns: new[] { "Id", "MovieId", "Name" },
+                columns: new[] { "Id", "Name" },
                 values: new object[,]
                 {
-                    { 1, null, "Fantasy" },
-                    { 2, null, "Action" },
-                    { 3, null, "Horror" },
-                    { 4, null, "Romance" },
-                    { 5, null, "Adventure" },
-                    { 6, null, "Phychological" },
-                    { 7, null, "sci fi" },
-                    { 8, null, "Comedy" },
-                    { 9, null, "Crime" }
+                    { 1, "Fantasy" },
+                    { 2, "Action" },
+                    { 3, "Horror" },
+                    { 4, "Romance" },
+                    { 5, "Adventure" },
+                    { 6, "Phychological" },
+                    { 7, "sci fi" },
+                    { 8, "Comedy" },
+                    { 9, "Crime" }
                 });
 
             migrationBuilder.CreateIndex(
-                name: "IX_Genre_MovieId",
-                table: "Genre",
-                column: "MovieId");
+                name: "IX_GenreMovie_genresId",
+                table: "GenreMovie",
+                column: "genresId");
 
             migrationBuilder.CreateIndex(
                 name: "IX_Hall_MovieId",
@@ -162,7 +164,7 @@ namespace BiografProjekt.Repo.Migrations
         protected override void Down(MigrationBuilder migrationBuilder)
         {
             migrationBuilder.DropTable(
-                name: "Genre");
+                name: "GenreMovie");
 
             migrationBuilder.DropTable(
                 name: "Hall");
@@ -171,13 +173,13 @@ namespace BiografProjekt.Repo.Migrations
                 name: "Seat");
 
             migrationBuilder.DropTable(
-                name: "Theater");
-
-            migrationBuilder.DropTable(
                 name: "Ticket");
 
             migrationBuilder.DropTable(
                 name: "User");
+
+            migrationBuilder.DropTable(
+                name: "Genre");
 
             migrationBuilder.DropTable(
                 name: "Movie");

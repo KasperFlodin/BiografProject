@@ -8,6 +8,7 @@ const routes: Routes = [
   { path: 'hall', loadComponent: () => import('./components/hall/hall.component').then(_=>_.HallComponent) },
   { path: 'seat', loadComponent: () => import('./components/seat/seat.component').then(_=>_.SeatComponent) },
   { path: 'ticket', loadComponent: () => import('./components/ticket/ticket.component').then(_=>_.TicketComponent) },
+  { path: 'user', loadComponent: () => import('./components/user/user.component').then(_=>_.UserComponent) },
 
   { path: '**', redirectTo: '', pathMatch: 'full' }
 ];

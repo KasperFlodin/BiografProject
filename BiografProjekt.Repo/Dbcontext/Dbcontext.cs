@@ -12,7 +12,6 @@ namespace BiografProjekt.Repo.Dbcontext
         public DbSet<Seat> Seat { get; set; }
         public DbSet<Ticket> Ticket { get; set; }
         public DbSet<User> User { get; set; }
-        public DbSet<Theater> Theater { get; set; }
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {

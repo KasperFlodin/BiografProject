@@ -12,8 +12,9 @@ import { SeatComponent } from './components/seat/seat.component';
 import { FrontpageComponent } from './frontpage.component';
 import { HttpClientModule } from '@angular/common/http';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
+import {MatIconModule} from '@angular/material/icon';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
-// ng add @ng-bootstrap/ng-bootstrap
 
 @NgModule({
   declarations: [
@@ -31,6 +32,8 @@ import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
     FrontpageComponent,
     HttpClientModule,
     NgbModule,
+    MatIconModule,
+    BrowserAnimationsModule,
 
   ],
   providers: [],

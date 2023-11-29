@@ -4,5 +4,6 @@ export class Movie {
   name:string = '';
   releaseDate:number = 0;
   lenght:number = 0;
+  poster:string = '';
   genres?: Genre[];
 }

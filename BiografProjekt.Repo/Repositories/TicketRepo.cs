@@ -1,4 +1,6 @@
-﻿namespace BiografProjekt.Repo.Repositories
+﻿using BiografProjekt.Repo.DTO;
+
+namespace BiografProjekt.Repo.Repositories
 {
     public class TicketRepo : ITicket
     {
@@ -16,12 +18,15 @@
 
         public async Task<Ticket> getById(int id)
         {
-            throw new NotImplementedException();
+            return await context.Ticket.FirstOrDefaultAsync(t => t.Id == id);
         }
 
         public async Task<Ticket> create(Ticket ticket)
         {
-            throw new NotImplementedException();
+            context.Ticket.Add(ticket);
+            await context.SaveChangesAsync();
+
+            return ticket; ;
         }
 
         public async Task<Ticket> delete(int id)

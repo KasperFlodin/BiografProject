@@ -122,6 +122,10 @@ namespace BiografProjekt.Repo.Migrations
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
+                    b.Property<string>("Poster")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
                     b.Property<int>("ReleaseDate")
                         .HasColumnType("int");
 

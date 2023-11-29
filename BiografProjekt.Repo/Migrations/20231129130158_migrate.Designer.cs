@@ -11,7 +11,7 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace BiografProjekt.Repo.Migrations
 {
     [DbContext(typeof(DatabaseContext))]
-    [Migration("20231128103348_migrate")]
+    [Migration("20231129130158_migrate")]
     partial class migrate
     {
         /// <inheritdoc />
@@ -122,6 +122,10 @@ namespace BiografProjekt.Repo.Migrations
                     SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
 
                     b.Property<string>("Name")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("Poster")
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 

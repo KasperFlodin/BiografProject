@@ -27,7 +27,7 @@ namespace BiografProjekt.Repo.Repositories
             return await context.Movie.FirstOrDefaultAsync(m => m.Id == id);
         }
 
-        public async Task<Movie> create(Movie movie) // Create both?
+        public async Task<Movie> create(Movie movie) // Create both?3
         {
             if (movie == null) { return null; }
 
@@ -41,6 +41,7 @@ namespace BiografProjekt.Repo.Repositories
                 result.Name = movie.Name;
                 result.length = movie.length;
                 result.ReleaseDate = movie.ReleaseDate;
+                result.Poster = movie.Poster;
                 result.genres = genreSelected;
             };
             
@@ -69,6 +70,7 @@ namespace BiografProjekt.Repo.Repositories
             MovieUpdate.Name = updateMovie.Name;
             MovieUpdate.ReleaseDate = updateMovie.ReleaseDate;
             MovieUpdate.length = updateMovie.length;
+            MovieUpdate.Poster = updateMovie.Poster;
 
             await context.SaveChangesAsync();
             return MovieUpdate;

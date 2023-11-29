@@ -33,7 +33,8 @@ namespace BiografProjekt.Repo.Migrations
                         .Annotation("SqlServer:Identity", "1, 1"),
                     Name = table.Column<string>(type: "nvarchar(max)", nullable: false),
                     ReleaseDate = table.Column<int>(type: "int", nullable: false),
-                    length = table.Column<int>(type: "int", nullable: false)
+                    length = table.Column<int>(type: "int", nullable: false),
+                    Poster = table.Column<string>(type: "nvarchar(max)", nullable: false)
                 },
                 constraints: table =>
                 {

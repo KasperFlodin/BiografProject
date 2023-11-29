@@ -1,11 +1,26 @@
 <p>movie works!</p>
 
 
-<div *ngFor="let item of movies">
+<!-- <div *ngFor="let item of movies">
+  <img src={{item.poster}} class="card-img-top">
   <p><h1>Movie name: {{item.name}}</h1>
     <span>Releasedate: {{item.releaseDate}}
       Lenght: {{item.lenght}}</span>
     <p>genres: <span *ngFor="let genre of item.genres">{{genre.name}},</span>
     <br>
-  <!-- </p> -->
+   </p> -->
+<!-- </div>  -->
+
+<div class="row row-cols-1 row-cols-md-3 g-3">
+  <div class="col-sm-3" *ngFor="let item of movies">
+      <div class="card h-100">
+        <img src={{item.poster}} class="card-img-top">
+          <div class="card-body">
+              <div class="card-title d-flex justify-content-between">
+                <h5>Movie name: {{item.name}}</h5>
+                <h6>Movie name: {{item.releaseDate}}</h6>                  
+              </div>
+          </div>
+      </div>
+  </div>
 </div>

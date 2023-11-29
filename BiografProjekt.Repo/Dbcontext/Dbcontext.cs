@@ -1,4 +1,5 @@
 ﻿using Microsoft.IdentityModel.Protocols.OpenIdConnect;
+using static System.Net.WebRequestMethods;
 
 namespace BiografProjekt.Repo.Dbcontext
 {
@@ -87,17 +88,18 @@ namespace BiografProjekt.Repo.Dbcontext
                 {
                     Id = 9,
                     Name = "Crime",
-                });
+                }
 
-            //    modelBuilder.Entity<Movie>().HasData(
-            //        new Movie
-            //        {
-            //            Id = 1,
-            //            Name = "first",
-            //            ReleaseDate = 2020,
-            //            length = 140,
-            //            Genre = { }
-            //        },
+            //modelBuilder.Entity<Movie>().HasData(
+            //    new Movie
+            //    {
+            //        Id = 1,
+            //        Name = "first",
+            //        ReleaseDate = 2020,
+            //        length = 140,
+            //        Poster = "https://frameimages.sfo2.cdn.digitaloceanspaces.com/launchpad-uploads/5d38ab8a97f8866f8b813c19.jpeg",
+            //        genres = {},
+            //    }
             //        new Movie
             //        {
             //            Id = 2,
@@ -143,7 +145,7 @@ namespace BiografProjekt.Repo.Dbcontext
             //    //        ReleaseDate = 2020,
             //    //        length = 180,
             //    //        //GenreId = 8
-            //    //    });
+                /*}*/);
 
             //    modelBuilder.Entity<Seat>().HasData(
             //        new Seat

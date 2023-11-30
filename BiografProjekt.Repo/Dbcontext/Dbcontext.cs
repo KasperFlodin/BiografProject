@@ -1,4 +1,5 @@
-﻿using Microsoft.IdentityModel.Protocols.OpenIdConnect;
+﻿using Microsoft.Data.SqlClient;
+using Microsoft.IdentityModel.Protocols.OpenIdConnect;
 using static System.Net.WebRequestMethods;
 
 namespace BiografProjekt.Repo.Dbcontext
@@ -249,6 +250,8 @@ namespace BiografProjekt.Repo.Dbcontext
 
 
         }
+        
+
     }
 
 }

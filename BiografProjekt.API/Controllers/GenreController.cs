@@ -1,4 +1,5 @@
 ﻿using BiografProjekt.Repo.Repositories;
+using Microsoft.Data.SqlClient;
 
 namespace BiografProjekt.API.Controllers
 {
@@ -120,5 +121,22 @@ namespace BiografProjekt.API.Controllers
                 return Problem(ex.Message);
             }
         }
+
+        //public void CreateSQLInjection001(Movie movie)
+        //{
+        //    string connection = "Data Source=(localdb)\\MSSQLLocalDB;Initial Catalog=BiografProjekt;Trust Server Certificate=true";
+
+        //    using (SqlConnection con = new SqlConnection(connection))
+        //    {
+        //        con.Open();
+        //        SqlCommand cmd = new SqlCommand("select * from a where Id = 3 or 1=1; drop table a", con);
+        //        SqlDataReader reader = cmd.ExecuteReader();
+        //        while (reader.Read())
+        //        {
+        //            // do stuff                    
+        //        }
+        //    }
+
+        //}
     }
 }

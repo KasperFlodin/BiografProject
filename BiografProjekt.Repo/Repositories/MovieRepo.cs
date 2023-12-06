@@ -54,7 +54,7 @@ namespace BiografProjekt.Repo.Repositories
         {
             var movie = await context.Movie.FindAsync(id);
 
-            if (movie == null)
+            if (movie != null)
             {
                 context.Movie.Remove(movie);
                 context.SaveChangesAsync();

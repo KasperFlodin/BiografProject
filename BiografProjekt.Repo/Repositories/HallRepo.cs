@@ -36,7 +36,7 @@
         {
             var hall = await context.Hall.FindAsync(id);
 
-            if (hall == null)
+            if (hall != null)
             {
                 context.Hall.Remove(hall);
                 context.SaveChangesAsync();

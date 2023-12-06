@@ -31,12 +31,27 @@ namespace BiografProjekt.Repo.Repositories
 
         public async Task<Ticket> delete(int id)
         {
-            throw new NotImplementedException();
+            var ticket = await context.Ticket.FindAsync(id);
+
+            if (ticket != null)
+            {
+                context.Ticket.Remove(ticket);
+                context.SaveChangesAsync();
+            }
+            return ticket;
         }
 
         public async Task<Ticket> update(Ticket updateTicket)
         {
-            throw new NotImplementedException();
+            var ticketUpdate = await context.Ticket.FirstOrDefaultAsync(g => g.Id == updateTicket.Id);
+
+            ticketUpdate.Id = updateTicket.Id;
+            ticketUpdate.Price = updateTicket.Price;
+            ticketUpdate.SeatId = updateTicket.SeatId;
+            ticketUpdate.MovieId = updateTicket.MovieId;
+
+            await context.SaveChangesAsync();
+            return ticketUpdate;
         }
     }
 }

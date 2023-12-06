@@ -9,6 +9,7 @@
         [JsonIgnore]
         [ForeignKey("Movie.Id")]
         public int MovieId { get; set; }
+        [JsonIgnore]
         public Movie Movie { get; set; }
 
         //[JsonIgnore]

@@ -31,7 +31,7 @@
         {
             var genre = await context.Genre.FindAsync(id);
 
-            if (genre == null)
+            if (genre != null)
             {
                 context.Genre.Remove(genre);
                 context.SaveChangesAsync();

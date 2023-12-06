@@ -31,7 +31,7 @@
         {
             var seat = await context.Seat.FindAsync(id);
 
-            if (seat == null)
+            if (seat != null)
             {
                 context.Seat.Remove(seat);
                 context.SaveChangesAsync();

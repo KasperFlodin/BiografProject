@@ -57,5 +57,17 @@
             await context.SaveChangesAsync();
             return UserUpdate;
         }
+
+        public async Task<User> getByName(string name)
+        {
+            return await context.User.FirstOrDefaultAsync(u => u.Name == name);
+        }
+        
+        public async Task<User> getByEmail(string email)
+        {
+            return await context.User.FirstOrDefaultAsync(u => u.Email == email);
+        }
+
+        
     }
 }

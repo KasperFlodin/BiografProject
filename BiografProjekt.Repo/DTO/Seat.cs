@@ -5,7 +5,8 @@
         public int Id { get; set; }
         public int SeatNumber { get; set; }
 
+        [JsonIgnore]
         [ForeignKey("hallid")]
-        int hallId { get; set; }
+        public int HallId { get; set; }
     }
 }

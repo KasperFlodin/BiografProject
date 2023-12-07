@@ -45,6 +45,7 @@
 
             SeatUpdate.Id = updateSeat.Id;
             SeatUpdate.SeatNumber = updateSeat.SeatNumber;
+            SeatUpdate.HallId = updateSeat.HallId;
 
             await context.SaveChangesAsync();
             return SeatUpdate;

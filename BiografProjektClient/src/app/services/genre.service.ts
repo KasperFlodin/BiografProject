@@ -29,7 +29,7 @@ export class GenreService {
     return this.http.post<Genre>(this.apiUrl, genre);
   }
 
-  update(Id:number, genre: Genre): Observable<Genre> {
-    return this.http.put<Genre>(this.apiUrl+Id, genre);
+  update(genre: Genre): Observable<Genre> {
+    return this.http.put<Genre>(this.apiUrl, genre);
   }
 }

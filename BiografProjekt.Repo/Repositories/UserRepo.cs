@@ -67,7 +67,5 @@
         {
             return await context.User.FirstOrDefaultAsync(u => u.Email == email);
         }
-
-        
     }
 }

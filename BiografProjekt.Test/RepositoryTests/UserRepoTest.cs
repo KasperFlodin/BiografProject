@@ -36,10 +36,9 @@
         {
             UserRepo userRepository = new UserRepo(context);
 
-            var user = await userRepository.getByName("Jane");
+            var user = await userRepository.getByName("Boy");
 
-            Assert.NotNull(user);
-            Assert.Equal("Jane", user.Name);
+            Assert.Equal("Boy", user.Name);
         }
         
         [Fact]
@@ -47,10 +46,9 @@
         {
             UserRepo userRepository = new UserRepo(context);
 
-            var user = await userRepository.getByEmail("Bow@Gmail.com");
+            var user = await userRepository.getByEmail("Bow@gmail.com");
 
-            Assert.NotNull(user);
-            Assert.Equal("Bow@Gmail.com", user.Email);
+            Assert.Equal("Bow@gmail.com", user.Email);
         }
     }
 }

@@ -5,13 +5,13 @@ import { Genre, resetGenre } from 'src/app/models/genre';
 import { GenreService } from 'src/app/services/genre.service';
 
 @Component({
+  selector: 'app-admingenre',
+  templateUrl: './admingenre.component.html',
+  styleUrls: ['./admingenre.component.css'],
   standalone: true,
-  selector: 'app-admin',
-  templateUrl: './admin.component.html',
-  styleUrls: ['./admin.component.css'],
   imports: [CommonModule, FormsModule],
 })
-export class AdminComponent implements OnInit{
+export class AdmingenreComponent implements OnInit {
   message: string = '';
   genres: Genre[] = [];
   genre: Genre = resetGenre();
@@ -25,7 +25,7 @@ export class AdminComponent implements OnInit{
   edit(genre: Genre): void {
     this.genre = {
       id: genre.id,
-      name:genre.name
+      name: genre.name
     };
   }
 
@@ -67,9 +67,5 @@ export class AdminComponent implements OnInit{
       });
     }
   }
-
-
-
-
 
 }

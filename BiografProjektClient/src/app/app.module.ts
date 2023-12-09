@@ -14,12 +14,14 @@ import { HttpClientModule } from '@angular/common/http';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import {MatIconModule} from '@angular/material/icon';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import { AdminComponent } from './components/admin/admin.component';
+import { AdmingenreComponent } from './components/admin/admingenre/admingenre.component';
+import { AdminmovieComponent } from './components/admin/adminmovie/adminmovie.component';
 
 
 @NgModule({
   declarations: [
     AppComponent,
+    
   ],
   imports: [
     BrowserModule,
@@ -35,7 +37,8 @@ import { AdminComponent } from './components/admin/admin.component';
     NgbModule,
     MatIconModule,
     BrowserAnimationsModule,
-    AdminComponent,
+    AdmingenreComponent,
+    AdminmovieComponent,
 
   ],
   providers: [],

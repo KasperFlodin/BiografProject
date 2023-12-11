@@ -85,12 +85,12 @@ namespace BiografProjekt.API.Controllers
 
         [HttpPost]
         //public async Task<ActionResult<Movie>> CreateMovie(Movie movie)
-        public async Task<IActionResult> CreateSeat(Seat seat)
+        public async Task<IActionResult> CreateSeat(int row, int col, int hallId)
         {
             //return await movieRepo.create(movie);
             try
             {
-                Seat seatMovie = await seatRepo.create(seat);
+                List<Seat> seatMovie = await seatRepo.create(row, col, hallId);
                 return Ok(seatMovie); // Returns status 200 success
             }
             catch (Exception ex)

@@ -9,7 +9,7 @@ import { Movie } from '../models/movie';
 })
 export class MovieService {
 
-  private readonly apiUrl=environment.apiUrl+"Movie";
+  private readonly apiUrl=environment.apiUrl+"Movie/";
   constructor(private http:HttpClient) { }
 
 
@@ -17,7 +17,7 @@ export class MovieService {
     return this.http.get<Movie[]>(this.apiUrl)
   }
 
-  FindById(movieId: string): Observable<Movie> {
+  FindById(movieId: number): Observable<Movie> {
     return this.http.get<Movie>(this.apiUrl+movieId);
   }
 

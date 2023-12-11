@@ -1,4 +1,5 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
+import { SeatService } from './../../services/seat.service';
 
 @Component({
   standalone: true,
@@ -6,6 +7,18 @@ import { Component } from '@angular/core';
   templateUrl: './seat.component.html',
   styleUrls: ['./seat.component.css']
 })
-export class SeatComponent {
+export class SeatComponent implements OnInit{
+
+
+  constructor(
+    private seatService: SeatService,
+    ) { }
+
+  ngOnInit(): void {
+    this.seatService.FindById(seatId).subscribe(res => {
+      console.log(res);
+      this.seatData = res;
+    });
+  }
 
 }

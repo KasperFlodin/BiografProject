@@ -1,4 +1,6 @@
-﻿namespace BiografProjekt.Repo.Repositories
+﻿using Microsoft.Data.Sql;
+
+namespace BiografProjekt.Repo.Repositories
 {
     public class SeatRepo : ISeat
     {
@@ -18,13 +20,36 @@
         {
             return await context.Seat.FirstOrDefaultAsync(s => s.Id == id);
         }
-
-        public async Task<Seat> create(Seat seat)
+        
+        public async Task<Seat> getByHallId(int id)
         {
-            context.Seat.Add(seat);
+            return await context.Seat.FirstOrDefaultAsync(s => s.HallId == id);
+        }
+
+        public async Task<List<Seat>> create(int row, int col, int hallId)
+        {
+            // UseCase generer antal row og coloner til at lave en Hall, skal udføres som et multidimesionelt 
+            // Array, forlykke struktur til at save alle i list på en gang
+            // 1 forlykke til row / 1 forlykke til col
+            // 2 forlykker for at løbe både row og col igennem da de er multidemensionel
+            // så vi skal indtaste row og colomn i swagger 
+
+            List<Seat> seats = new List<Seat>();
+            int seatnumberTemp = 1;
+            for (int i = 1; i <= col; i++)
+            {
+                
+                for(int r = 1; r <= row; r++)
+                {
+                    
+                    seats.Add(new Seat { Id=0, SeatNumber=seatnumberTemp++, Col=i, Row=r, IsReserved=false, HallId=hallId});
+                    context.Seat.AddRange(seats);
+                }
+            }
+
             await context.SaveChangesAsync();
 
-            return seat;
+            return seats;
         }
 
         public async Task<Seat> delete(int id)

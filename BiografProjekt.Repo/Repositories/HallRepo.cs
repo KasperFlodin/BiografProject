@@ -14,10 +14,10 @@
             return await context.Hall.ToListAsync();
         }
         
-        public async Task<List<Hall>> getAllIncludeMovie()
-        {
-            return await context.Hall.Include(m => m.Movie).ToListAsync();
-        }
+        //public async Task<List<Hall>> getAllIncludeMovie()
+        //{
+        //    return await context.Hall.Include(m => m.Movie).ToListAsync();
+        //}
 
         public async Task<Hall> getById(int id)
         {

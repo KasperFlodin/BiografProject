@@ -7,10 +7,14 @@
         public string HallName { get; set; }
 
         [JsonIgnore]
-        [ForeignKey("Movie.Id")]
-        public int MovieId { get; set; }
-        [JsonIgnore]
-        public Movie Movie { get; set; }
+        public Seat Seats { get; set; }
+
+        //[JsonIgnore]
+        //[ForeignKey("Movie.Id")]
+        //public int MovieId { get; set; }
+
+        //[JsonIgnore]
+        //public Movie Movie { get; set; }
 
         //[JsonIgnore]
         //[ForeignKey("Seat.Id")]

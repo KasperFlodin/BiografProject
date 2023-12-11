@@ -148,105 +148,27 @@ namespace BiografProjekt.Repo.Dbcontext
             //    //        //GenreId = 8
                 /*}*/);
 
-            //    modelBuilder.Entity<Seat>().HasData(
-            //        new Seat
-            //        {
-            //            Id = 1,
-            //            SeatNumber = 1,
-            //        },
-            //        new Seat
-            //        {
-            //            Id = 2,
-            //            SeatNumber = 2,
-            //        },
-            //        new Seat
-            //        {
-            //            Id = 3,
-            //            SeatNumber = 3,
-            //        },
-            //        new Seat
-            //        {
-            //            Id = 4,
-            //            SeatNumber = 4,
-            //        },
-            //        new Seat
-            //        {
-            //            Id = 5,
-            //            SeatNumber = 5,
-            //        },
-            //        new Seat
-            //        {
-            //            Id = 6,
-            //            SeatNumber = 6,
-            //        },
-            //        new Seat
-            //        {
-            //            Id = 7,
-            //            SeatNumber = 7,
-            //        },
-            //        new Seat
-            //        {
-            //            Id = 8,
-            //            SeatNumber = 8,
-            //        },
-            //        new Seat
-            //        {
-            //            Id = 9,
-            //            SeatNumber = 9,
-            //        },
-            //        new Seat
-            //        {
-            //            Id = 10,
-            //            SeatNumber = 10,
-            //        },
-            //        new Seat
-            //        {
-            //            Id = 11,
-            //            SeatNumber = 11,
-            //        },
-            //        new Seat
-            //        {
-            //            Id = 12,
-            //            SeatNumber = 12,
-            //        },
-            //        new Seat
-            //        {
-            //            Id = 13,
-            //            SeatNumber = 13,
-            //        },
-            //        new Seat
-            //        {
-            //            Id = 14,
-            //            SeatNumber = 14,
-            //        },
-            //        new Seat
-            //        {
-            //            Id = 15,
-            //            SeatNumber = 15,
-            //        });
+            
 
-            //    modelBuilder.Entity<Hall>().HasData(
-            //       new Hall
-            //       {
-            //           Id = 1,
-            //           NumberOfSeats = 5,
-            //           HallName = "Hall 1",
-            //           MovieId = 1,
-            //       },
-            //       new Hall
-            //       {
-            //           Id = 2,
-            //           NumberOfSeats = 5,
-            //           HallName = "Hall 2",
-            //           MovieId = 2,
-            //       }
-            //       , new Hall
-            //       {
-            //           Id = 3,
-            //           NumberOfSeats = 5,
-            //           HallName = "Hall 3",
-            //           MovieId = 3,
-            //       });
+            modelBuilder.Entity<Hall>().HasData(
+               new Hall
+               {
+                   Id = 1,
+                   NumberOfSeats = 9,
+                   HallName = "Hall 1",                   
+               },
+               new Hall
+               {
+                   Id = 2,
+                   NumberOfSeats = 9,
+                   HallName = "Hall 2",                   
+               }
+               , new Hall
+               {
+                   Id = 3,
+                   NumberOfSeats = 9,
+                   HallName = "Hall 3",                   
+               });
 
 
         }

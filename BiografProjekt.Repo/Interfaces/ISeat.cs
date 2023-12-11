@@ -6,7 +6,10 @@
 
         public Task<Seat> getById(int id);
 
-        public Task<Seat> create(Seat seat);
+        public Task<Seat> getByHallId(int id);
+
+        //public Task<Seat> create(Seat seat);
+        public Task<List<Seat>> create(int row, int col, int hallId);
 
         public Task<Seat> update(Seat updateSeat);
 

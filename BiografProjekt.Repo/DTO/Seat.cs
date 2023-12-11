@@ -8,8 +8,7 @@
         public int Row { get; set; }
         public bool IsReserved { get; set; }
 
-        [JsonIgnore]
-        [ForeignKey("Id")]
+        [ForeignKey("HallId")]
         public int HallId { get; set; }
     }
 }

@@ -15,10 +15,10 @@ export class SeatComponent implements OnInit{
     ) { }
 
   ngOnInit(): void {
-    this.seatService.FindById(seatId).subscribe(res => {
-      console.log(res);
-      this.seatData = res;
-    });
+    // this.seatService.FindById(Id).subscribe(res => {
+    //   console.log(res);
+    //   this.seatData = res;
+    // });
   }
 
 }

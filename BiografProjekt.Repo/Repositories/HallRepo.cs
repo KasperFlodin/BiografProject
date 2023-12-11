@@ -14,6 +14,11 @@
             return await context.Hall.ToListAsync();
         }
         
+        public async Task<List<Hall>> getAllIncludeSeats()
+        {
+            return await context.Hall.Include(s => s.Seats).ToListAsync();
+        }
+        
         //public async Task<List<Hall>> getAllIncludeMovie()
         //{
         //    return await context.Hall.Include(m => m.Movie).ToListAsync();
@@ -21,7 +26,7 @@
 
         public async Task<Hall> getById(int id)
         {
-            return await context.Hall.FirstOrDefaultAsync(h => h.Id == id);
+            return await context.Hall.Include(s => s.Seats).FirstOrDefaultAsync(h => h.Id == id);
         }
 
         public async Task<Hall> create(Hall hall)

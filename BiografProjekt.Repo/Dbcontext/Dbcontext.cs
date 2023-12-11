@@ -149,7 +149,6 @@ namespace BiografProjekt.Repo.Dbcontext
                 /*}*/);
 
             
-
             modelBuilder.Entity<Hall>().HasData(
                new Hall
                {
@@ -169,7 +168,6 @@ namespace BiografProjekt.Repo.Dbcontext
                    NumberOfSeats = 9,
                    HallName = "Hall 3",                   
                });
-
 
         }
         

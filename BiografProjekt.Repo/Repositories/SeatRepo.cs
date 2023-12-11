@@ -21,9 +21,9 @@ namespace BiografProjekt.Repo.Repositories
             return await context.Seat.FirstOrDefaultAsync(s => s.Id == id);
         }
         
-        public async Task<Seat> getByHallId(int id)
+        public async Task<Seat> getByHallId(int hallId)
         {
-            return await context.Seat.FirstOrDefaultAsync(s => s.HallId == id);
+            return await context.Seat.FirstOrDefaultAsync(s => s.HallId == hallId);
         }
 
         public async Task<List<Seat>> create(int row, int col, int hallId)
@@ -40,13 +40,11 @@ namespace BiografProjekt.Repo.Repositories
             {
                 
                 for(int r = 1; r <= row; r++)
-                {
-                    
+                {                    
                     seats.Add(new Seat { Id=0, SeatNumber=seatnumberTemp++, Col=i, Row=r, IsReserved=false, HallId=hallId});
                     context.Seat.AddRange(seats);
                 }
             }
-
             await context.SaveChangesAsync();
 
             return seats;

@@ -4,6 +4,7 @@
     {
         public Task<List<Hall>> getAll();
         //public Task<List<Hall>> getAllIncludeMovie();
+        public Task<List<Hall>> getAllIncludeSeats();
 
         public Task<Hall> getById(int id);
 

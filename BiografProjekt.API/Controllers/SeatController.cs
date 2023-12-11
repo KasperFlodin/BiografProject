@@ -61,6 +61,28 @@ namespace BiografProjekt.API.Controllers
             }
         }
 
+        [HttpGet("HallId{HallId}")]
+        public async Task<IActionResult> GetByHallId(int HallId)
+        {
+            try
+            {
+                var hallSeat = await seatRepo.getByHallId(HallId);
+
+                if (hallSeat == null)
+                {
+                    return NotFound();
+                }
+
+                return Ok(hallSeat);
+
+            }
+            catch (Exception ex)
+            {
+
+                return Problem(ex.Message);
+            }
+        }
+
         [HttpPut]
         //public async Task<Movie> UpdateMovie(Movie movie)
         public async Task<IActionResult> UpdateSeat(Seat seat)
@@ -87,7 +109,6 @@ namespace BiografProjekt.API.Controllers
         //public async Task<ActionResult<Movie>> CreateMovie(Movie movie)
         public async Task<IActionResult> CreateSeat(int row, int col, int hallId)
         {
-            //return await movieRepo.create(movie);
             try
             {
                 List<Seat> seatMovie = await seatRepo.create(row, col, hallId);
@@ -95,7 +116,6 @@ namespace BiografProjekt.API.Controllers
             }
             catch (Exception ex)
             {
-
                 return Problem(ex.Message); // returnere error message
             }
         }

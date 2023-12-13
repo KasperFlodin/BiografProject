@@ -20,7 +20,7 @@ export class SeatService {
     return this.http.get<Seat>(this.apiUrl+Id);
   }
 
-  getSeatsByHallId(HallId: number): Observable<Seat> {
+  FindByHallId(HallId: number): Observable<Seat> {
     return this.http.get<Seat>(this.apiUrl+HallId);
   }
 

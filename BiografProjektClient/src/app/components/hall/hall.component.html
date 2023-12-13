@@ -1,5 +1,17 @@
 <p>hall works!</p>
 
 <div *ngFor="let item of halls">
-  <p>{{item.id}}, {{item.numberOfSeats}}, {{item.hallName}}</p>
+  <button (click)="selectHallseats(item.id)">{{item.id}} - {{item.hallName}}</button>
+</div>
+
+
+
+<div *ngIf="hallSelected==true">
+  <div>
+    <div>
+      <span *ngFor="let hall of halls">
+      <mat-icon fontIcon="chair">{{hall.seats?.filter}}</mat-icon>
+      </span>
+    </div>
+  </div>
 </div>

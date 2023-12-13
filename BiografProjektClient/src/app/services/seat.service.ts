@@ -16,8 +16,12 @@ export class SeatService {
     return this.http.get<Seat[]>(this.apiUrl)
   }
 
-  FindById(Id: string): Observable<Seat> {
+  FindById(Id: number): Observable<Seat> {
     return this.http.get<Seat>(this.apiUrl+Id);
+  }
+
+  getSeatsByHallId(HallId: number): Observable<Seat> {
+    return this.http.get<Seat>(this.apiUrl+HallId);
   }
 
   delete(Id: number): Observable<Seat> {

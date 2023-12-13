@@ -10,9 +10,7 @@ import { SeatService } from './../../services/seat.service';
 export class SeatComponent implements OnInit{
 
 
-  constructor(
-    private seatService: SeatService,
-    ) { }
+  constructor() { }
 
   ngOnInit(): void {
     // this.seatService.FindById(Id).subscribe(res => {

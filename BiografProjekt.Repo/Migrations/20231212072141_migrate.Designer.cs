@@ -11,7 +11,7 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace BiografProjekt.Repo.Migrations
 {
     [DbContext(typeof(DatabaseContext))]
-    [Migration("20231211123058_migrate")]
+    [Migration("20231212072141_migrate")]
     partial class migrate
     {
         /// <inheritdoc />

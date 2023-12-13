@@ -21,9 +21,9 @@ namespace BiografProjekt.Repo.Repositories
             return await context.Seat.FirstOrDefaultAsync(s => s.Id == id);
         }
         
-        public async Task<Seat> getByHallId(int hallId)
+        public async Task<List<Seat>> getByHallId(int hallId)
         {
-            return await context.Seat.FirstOrDefaultAsync(s => s.HallId == hallId);
+            return await context.Seat.Where(s => s.HallId == hallId).ToListAsync();
         }
 
         public async Task<List<Seat>> create(int row, int col, int hallId)

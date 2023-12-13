@@ -17,7 +17,7 @@ export class HallService {
     return this.http.get<Hall[]>(this.apiUrl)
   }
 
-  FindById(Id: string): Observable<Hall> {
+  FindById(Id: number): Observable<Hall> {
     return this.http.get<Hall>(this.apiUrl+Id);
   }
 

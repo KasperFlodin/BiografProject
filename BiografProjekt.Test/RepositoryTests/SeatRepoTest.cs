@@ -31,19 +31,19 @@
             Assert.Equal(4, seat.Count);
         }
 
-        //[Fact]
-        //public async Task CreateUserTest()
-        //{
-        //    SeatRepo seatRepository = new SeatRepo(context);
+        [Fact]
+        public async Task CreateUserTest()
+        {
+            SeatRepo seatRepository = new SeatRepo(context);
 
-        //    Seat create = new Seat { Id = 5, HallId = 1, SeatNumber = 5, Col = 2, Row = 2 };
+            Seat create = new Seat { Id = 5, HallId = 1, SeatNumber = 4, Col = 2, Row = 2 };
 
-        //    await seatRepository.create(create);
+            await seatRepository.create(2,2,1);
 
-        //    var seat = await seatRepository.getAll();
+            var seat = await seatRepository.getAll();
 
-        //    Assert.Equal(5, seat.Count);
-        //}
+            Assert.Equal(8, seat.Count);
+        }
 
         [Fact]
         public async Task DeleteSeatTest()

@@ -11,7 +11,7 @@ const routes: Routes = [
   { path: 'user', loadComponent: () => import('./components/user/user.component').then(_=>_.UserComponent) },
   { path: 'admingenre', loadComponent: () => import('./components/admin/admingenre/admingenre.component').then(_=>_.AdmingenreComponent) },
   { path: 'adminmovie', loadComponent: () => import('./components/admin/adminmovie/adminmovie.component').then(_=>_.AdminmovieComponent) },
-  
+
   { path: '**', redirectTo: '', pathMatch: 'full' }
 ];
 

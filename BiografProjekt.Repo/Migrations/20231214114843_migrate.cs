@@ -159,8 +159,8 @@ namespace BiografProjekt.Repo.Migrations
                 values: new object[,]
                 {
                     { 1, "Hall 1", 9 },
-                    { 2, "Hall 2", 9 },
-                    { 3, "Hall 3", 9 }
+                    { 2, "Hall 2", 4 },
+                    { 3, "Hall 3", 4 }
                 });
 
             migrationBuilder.CreateIndex(

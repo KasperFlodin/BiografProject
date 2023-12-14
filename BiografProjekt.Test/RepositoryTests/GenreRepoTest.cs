@@ -31,6 +31,7 @@
             var genre = await genreRepository.getAll();
 
             Assert.Equal(6, genre.Count);
+            
         }
 
         [Fact]

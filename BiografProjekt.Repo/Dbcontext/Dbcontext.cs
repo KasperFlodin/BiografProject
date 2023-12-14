@@ -148,25 +148,25 @@ namespace BiografProjekt.Repo.Dbcontext
             //    //        //GenreId = 8
                 /*}*/);
 
-            
+
             modelBuilder.Entity<Hall>().HasData(
                new Hall
                {
                    Id = 1,
                    NumberOfSeats = 9,
-                   HallName = "Hall 1",                   
+                   HallName = "Hall 1",
                },
                new Hall
                {
                    Id = 2,
-                   NumberOfSeats = 9,
-                   HallName = "Hall 2",                   
+                   NumberOfSeats = 4,
+                   HallName = "Hall 2",
                }
                , new Hall
                {
                    Id = 3,
-                   NumberOfSeats = 9,
-                   HallName = "Hall 3",                   
+                   NumberOfSeats = 4,
+                   HallName = "Hall 3",
                });
 
         }

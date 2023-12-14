@@ -11,7 +11,7 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace BiografProjekt.Repo.Migrations
 {
     [DbContext(typeof(DatabaseContext))]
-    [Migration("20231212072141_migrate")]
+    [Migration("20231214114843_migrate")]
     partial class migrate
     {
         /// <inheritdoc />
@@ -118,13 +118,13 @@ namespace BiografProjekt.Repo.Migrations
                         {
                             Id = 2,
                             HallName = "Hall 2",
-                            NumberOfSeats = 9
+                            NumberOfSeats = 4
                         },
                         new
                         {
                             Id = 3,
                             HallName = "Hall 3",
-                            NumberOfSeats = 9
+                            NumberOfSeats = 4
                         });
                 });
 

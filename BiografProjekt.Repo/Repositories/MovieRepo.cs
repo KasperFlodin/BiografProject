@@ -24,7 +24,7 @@ namespace BiografProjekt.Repo.Repositories
 
         public async Task<Movie> getById(int id)
         {
-            return await context.Movie.FirstOrDefaultAsync(m => m.Id == id);
+            return await context.Movie.Include(g => g.genres).FirstOrDefaultAsync(m => m.Id == id);
         }
 
         public async Task<Movie> create(Movie movie) // Create both?3

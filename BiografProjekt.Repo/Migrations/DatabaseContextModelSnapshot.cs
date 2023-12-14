@@ -115,13 +115,13 @@ namespace BiografProjekt.Repo.Migrations
                         {
                             Id = 2,
                             HallName = "Hall 2",
-                            NumberOfSeats = 9
+                            NumberOfSeats = 4
                         },
                         new
                         {
                             Id = 3,
                             HallName = "Hall 3",
-                            NumberOfSeats = 9
+                            NumberOfSeats = 4
                         });
                 });
 
